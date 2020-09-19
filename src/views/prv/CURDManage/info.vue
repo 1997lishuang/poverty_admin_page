@@ -26,7 +26,7 @@
                   label="操作"
                   width="200">
                   <template slot-scope="scope">
-                     <router-link :to="'/prv/headManSava/'+scope.row.id">
+                     <router-link :to="'/prv/savaMember/'+scope.row.id">
                         <el-button type="primary" size="mini" icon="el-icon-edit">添加成员</el-button>
                     </router-link>
                    <el-button type="danger" size="mini" icon="el-icon-delete" @click="removeDataById(scope.row.id)">删除</el-button>
@@ -134,10 +134,10 @@
                   label="操作"
                   width="300">
                   <template slot-scope="scope">
-                    <router-link :to="'/prv/headManSava/'+scope.row.id">
+                    <router-link :to="'/pro/sava/'+scope.row.id">
                         <el-button type="primary" size="mini" icon="el-icon-edit">修改</el-button>
                     </router-link>
-                    <router-link :to="'/prv/headManSava/'+scope.row.id">
+                    <router-link :to="'/pro/sava/'">
                         <el-button type="primary" size="mini" icon="el-icon-edit">添加</el-button>
                     </router-link>
                    <el-button type="danger" size="mini" icon="el-icon-delete" @click="removeDataById(scope.row.id)">删除</el-button>
@@ -160,37 +160,8 @@
 </template>
 
 <script>
+  import prv from '@/api/prv/crud'
   export default {
-
-	created() { //页面渲染之前执行
-	    this.init()
-	  },
-	watch: {  //监听
-	    $route(to, from) { //路由变化方式，路由发生变化，方法就会执行
-	      this.init()
-	    }
-	  },
-    methods: {
-      init() {     
-          //从路径获取id值
-          const id = this.$route.params.id
-          //调用根据id查询的方法
-          this.getInfo(id)
-      },  
-      getInfo(id) {
-      //创建prv 获取户主的信息 以及家庭成员的信息
-      prv.getHeadMan(id)
-        .then(response => {
-          this.formInline = response.data.formInline
-        })
-      },
-      handleClick(row) {
-        console.log(row);
-      },
-      handleClickTabs(tab, event) {
-        console.log(tab, event);
-      },
-    },
 
 
     data() {
@@ -213,24 +184,44 @@
           name: '王小虎',        
           province: '上海',
           url:'https://dss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1141259048,554497535&fm=26&gp=0.jpg' 
-        }, 
-        {
-          id:'2',
-          date: '2016-05-04',	
-          name: '王小虎',
-          province: '上海',
-          url:'https://dss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1141259048,554497535&fm=26&gp=0.jpg' 
-       
-        },
-        {
-          id:'3',
-          date: '2016-05-01',
-          name: '王小虎',
-          province: '上海',
-          url:'https://dss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1141259048,554497535&fm=26&gp=0.jpg' 
         }]
       }
+    },
+
+	created() { //页面渲染之前执行
+	    this.init()
+	  },
+	watch: {  //监听
+	    $route(to, from) { //路由变化方式，路由发生变化，方法就会执行
+	      this.init()
+	    }
+	 },
+    methods: {
+      init() {     
+          //从路径获取id值
+          const id = this.$route.params.id
+          console.log(id)
+          //调用根据id查询的方法
+          this.getInfo(id)
+      },  
+      getInfo(id) {
+      //创建prv 获取户主的信息 以及家庭成员的信息
+      prv.getPrvInfo(id)
+        .then(response => {
+          this.formInline = response.data.formInline
+        })
+        .catch(erro=>{
+        	console.log("erro")
+        })
+      },
+      handleClick(row) {
+        console.log(row);
+      },
+      handleClickTabs(tab, event) {
+        console.log(tab, event);
+      },
     }
+
   }
 </script>
 

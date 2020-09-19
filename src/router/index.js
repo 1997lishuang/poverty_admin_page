@@ -44,16 +44,16 @@ export const constantRouterMap = [
     meta: { title: '村民信息管理', icon: 'example' },
     children: [
       {
-        path: '/prv/reliefinfo',
-        name: '脱贫村民信息',
-        component: () => import('@/views/prv/reliefinfo'),
-        meta: { title: '脱贫村民信息', icon: 'table' }
-      },
-      {
         path: '/prv/povetyinfo',
         name: '贫困村民信息',
-        component: () => import('@/views/tree/index'),
+        component: () => import('@/views/prv/reliefinfo'),
         meta: { title: '贫困村民信息', icon: 'table' }
+      },
+      {
+        path: '/prv/reliefinfo',
+        name: '脱贫村民信息',
+        component: () => import('@/views/prv/reliefinfotwo'),
+        meta: { title: '脱贫村民信息', icon: 'table' }
       },     
       {
         path: '/prv/sava',
@@ -77,17 +77,31 @@ export const constantRouterMap = [
          hidden: true
        },
        {
-         path: '/prv/headManSava/:id',   
+         path: '/prv/savaMember/:id',   
          name: 'prvinfo',
+         component: () => import('@/views/prv/member/savaMember'),
+         meta: { title: '添加户主成员', noCache: true },
+         hidden: true
+       },
+       {
+         path: '/pro/sava/:id',   
+         name: 'proSava',
          component: () => import('@/views/pro/sava'),
-         meta: { title: '贫困村民详情信息', noCache: true },
+         meta: { title: '修改产业', noCache: true },
+         hidden: true
+       },
+        {
+         path: '/pro/sava',   
+         name: 'proSava',
+         component: () => import('@/views/pro/sava'),
+         meta: { title: '添加产业', noCache: true },
          hidden: true
        },
        {
          path: '/prv/help/:id',   
          name: 'prvinfo',
          component: () => import('@/views/prv/help'),
-         meta: { title: '贫困村民详情信息', noCache: true },
+         meta: { title: '帮扶人信息', noCache: true },
          hidden: true
        },
     ]

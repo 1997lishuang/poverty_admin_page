@@ -361,6 +361,9 @@
           //回到列表页面 路由跳转
           this.$router.push({path:'/prv/reliefinfo'})
         })
+        .catch(erro=>{
+          console.log("erro")
+        })
     },
     //添加的方法
     savePrv() {
@@ -373,6 +376,8 @@
           });
           //回到列表页面 路由跳转
           this.$router.push({path:'/prv/reliefinfo'})
+        }).catch(erro=>{
+          console.log("erro")
         })
     }
     },

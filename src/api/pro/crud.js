@@ -2,31 +2,31 @@ import request from '@/utils/request'
 export default {
    
     //删除产业
-    deletePrvId(id) {
+    deleteProId(id) {
         return request({
-            url: `/poverty/deleteById/${id}`,
+            url: `/industry/deleteById/${id}`,
             method: 'delete'
           })
     },
     //添加产业
-    addPrv(formInline) {
+    addPro(formInline) {
         return request({
-            url: `/poverty/sava`,
+            url: `/industry/sava`,
             method: 'post',
             data: formInline
           })
     },
     //根据id查询产业
-    getPrvInfo(id) {
+    getProInfo(id) {
         return request({
-            url: `/poverty/findById/${id}`,
+            url: `/industry/findById/${id}`,
             method: 'get'
           })
     },
     //修改产业
-    updatePrvInfo(formInline) {
+    updateProInfo(formInline) {
         return request({
-            url: `/poverty/sava`,
+            url: `/industry/sava`,
             method: 'post',
             data: formInline
           })
