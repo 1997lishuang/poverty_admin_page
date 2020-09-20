@@ -10,7 +10,7 @@
                   prop="date"
                   label="户主"
                   width="150">
-                <el-table-column
+                <el-table-column>
                 </el-table-column>
                   prop="name"
                   label="姓名"
@@ -32,7 +32,7 @@
                    <el-button type="danger" size="mini" icon="el-icon-delete" @click="removeDataById(scope.row.id)">删除</el-button>
                   </template>
                     </el-table-column>
-            </el-table>      
+            </el-table>
         </div>
 
         <div class="two">
@@ -61,13 +61,13 @@
                   label="操作"
                   width="200">
                   <template slot-scope="scope">
-                     <router-link :to="'/prv/headManSava/'+scope.row.id">
+                     <router-link :to="'/prv/savaMember/'+scope.row.id">
                         <el-button type="primary" size="mini" icon="el-icon-edit">修改</el-button>
                     </router-link>
                    <el-button type="danger" size="mini" icon="el-icon-delete" @click="removeDataById(scope.row.id)">删除</el-button>
                   </template>
                     </el-table-column>
-            </el-table>      
+            </el-table>
         </div>
 
         <div class="three">
@@ -77,7 +77,7 @@
                 :data="tableData"
                 border
                 style="width:100%">
-                <el-table-column                
+                <el-table-column
                   prop="date"
                   label="产业名称"
                   width="100">
@@ -92,19 +92,19 @@
                   label="总补助金"
                   width="100">
                 </el-table-column>
-                <el-table-column                  
+                <el-table-column
                   prop="date"
                   label="已发金额"
                   width="100">
                 </el-table-column>
                 <el-table-column
-                  
+
                   prop="date"
                   label="剩余金额"
                   width="100">
                 </el-table-column>
                 <el-table-column
-                  
+
                   prop="date"
                   label="发放时间"
                   width="100">
@@ -119,7 +119,7 @@
                   label="审核人"
                   width="100">
                 </el-table-column>
-                <el-table-column                 
+                <el-table-column
                   prop="date"
                   label="扶贫时间"
                   width="100">
@@ -142,7 +142,7 @@
                     </router-link>
                    <el-button type="danger" size="mini" icon="el-icon-delete" @click="removeDataById(scope.row.id)">删除</el-button>
                   </template>
-                 </el-table-column>               
+                 </el-table-column>
                  </el-table>
                  <h1 v-model="moneytotal" style="color:red">总计金额：{{moneytotal}}</h1>
 
@@ -155,7 +155,7 @@
             </el-tabs>
         </div>
     </div>
-	
+
 
 </template>
 
@@ -181,9 +181,9 @@
         tableData: [{
           id:'1',
           date: '2016-05-02',
-          name: '王小虎',        
+          name: '王小虎',
           province: '上海',
-          url:'https://dss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1141259048,554497535&fm=26&gp=0.jpg' 
+          url:'https://dss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1141259048,554497535&fm=26&gp=0.jpg'
         }]
       }
     },
@@ -197,13 +197,13 @@
 	    }
 	 },
     methods: {
-      init() {     
+      init() {
           //从路径获取id值
           const id = this.$route.params.id
           console.log(id)
           //调用根据id查询的方法
           this.getInfo(id)
-      },  
+      },
       getInfo(id) {
       //创建prv 获取户主的信息 以及家庭成员的信息
       prv.getPrvInfo(id)

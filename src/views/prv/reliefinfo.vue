@@ -10,7 +10,7 @@
       <el-form-item>
         <el-input v-model="tpaPerson.name" placeholder="请输入身份证号"/>
       </el-form-item>
-      
+
 
       <el-form-item label="添加时间">
         <el-date-picker
@@ -93,7 +93,7 @@
           {{ (page - 1) * limit + scope.$index + 1 }}
         </template>
     </el-table-column>
-    <el-table-column    
+    <el-table-column
       prop="sex"
       label="日期"
       width="100">
@@ -164,7 +164,7 @@
       label="操作"
       width="450">
       <template slot-scope="scope">
-      
+
         <router-link :to="'/prv/sava'">
             <el-button type="primary" size="mini" icon="el-icon-edit">添加</el-button>
         </router-link>
@@ -237,7 +237,7 @@ export default {
           prank:'困难',
           helpPerson:'张三',
           helpunit:'科技局'
-        }, 
+        },
         {
           id:'3',
          name:'王五',
@@ -254,9 +254,9 @@ export default {
           prank:'困难',
           helpPerson:'张三',
           helpunit:'科技局'
-        }, 
+        },
         {
-          id:'4',	
+          id:'4',
           name:'王五',
           sex:'男',
           age:'12',
@@ -281,7 +281,7 @@ export default {
     },
     created() { //页面渲染之前执行，一般调用methods定义的方法
         //调用
-        this.getPrvListPageist() 
+        this.getPrvListPageist()
     },
     methods:{  //创建具体的方法，调用teacher.js定义的方法
         //贫困人信息列表的方法
@@ -295,12 +295,12 @@ export default {
             prv.getPrvListPage(this.page,this.limit)
             .then(response =>{//请求成功
                     //response接口返回的数据
-                        
+
                     console.log(response.data.data)
-                   
+
                     //this.tableData = response.data.data
                     // this.total = response.data.total
-                    // console.log(this.list)   
+                    // console.log(this.list)
                     // console.log(this.total)
                 }).catch(err => {
                      alert("1111")
@@ -313,7 +313,7 @@ export default {
              //查询所有讲师数据
              this.getList()
          },
-        //删除讲师的方法
+        //删除的方法
         removeDataById(id) {
             this.$confirm('此操作将永久删除讲师记录, 是否继续?', '提示', {
                 confirmButtonText: '确定',
@@ -335,7 +335,7 @@ export default {
                })
             })
         }
- 
+
     }
 }
 </script>

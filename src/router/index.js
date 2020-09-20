@@ -54,7 +54,7 @@ export const constantRouterMap = [
         name: '脱贫村民信息',
         component: () => import('@/views/prv/reliefinfotwo'),
         meta: { title: '脱贫村民信息', icon: 'table' }
-      },     
+      },
       {
         path: '/prv/sava',
         name: '添加贫困村民',
@@ -63,42 +63,56 @@ export const constantRouterMap = [
         hidden: true
       },
       {
-         path: '/prv/sava/:id',   
+         path: '/prv/sava/:id',
          name: 'EduPtvEdit',
          component: () => import('@/views/prv/CURDManage/sava'),
          meta: { title: '编辑贫困村民信息', noCache: true },
          hidden: true
        },
        {
-         path: '/prv/info/:id',   
+         path: '/prv/info/:id',
          name: 'prvinfo',
          component: () => import('@/views/prv/CURDManage/info'),
          meta: { title: '贫困村民详情信息', noCache: true },
          hidden: true
        },
+      {
+        path: '/prv/infoTwo',
+        name: 'prvInfoTwo',
+        component: () => import('@/views/prv/CURDManage/infoTwo'),
+        meta: { title: '贫困村民详情信息二', noCache: true },
+        hidden: true
+      },
        {
-         path: '/prv/savaMember/:id',   
+         path: '/prv/savaMember/:id',
          name: 'prvinfo',
          component: () => import('@/views/prv/member/savaMember'),
-         meta: { title: '添加户主成员', noCache: true },
+         meta: { title: '修改户主成员', noCache: true },
          hidden: true
        },
+      {
+        path: '/prv/savaMember',
+        name: 'prvinfo',
+        component: () => import('@/views/prv/member/savaMember'),
+        meta: { title: '添加户主成员', noCache: true },
+        hidden: true
+      },
        {
-         path: '/pro/sava/:id',   
+         path: '/pro/sava/:id',
          name: 'proSava',
          component: () => import('@/views/pro/sava'),
          meta: { title: '修改产业', noCache: true },
          hidden: true
        },
-        {
-         path: '/pro/sava',   
+      {
+         path: '/pro/sava',
          name: 'proSava',
          component: () => import('@/views/pro/sava'),
          meta: { title: '添加产业', noCache: true },
          hidden: true
        },
        {
-         path: '/prv/help/:id',   
+         path: '/prv/help/:id',
          name: 'prvinfo',
          component: () => import('@/views/prv/help'),
          meta: { title: '帮扶人信息', noCache: true },
@@ -107,46 +121,46 @@ export const constantRouterMap = [
     ]
   },
   {
-    path: '/jingzhunfupin',
+    path: '/jzhfp',
     component: Layout,
-    redirect: '/jingzhunfupin/doudi',
-    name: '村民信息管理',
-    meta: { title: '村民信息管理', icon: 'example' },
+    redirect: '/jzhfp/doudi',
+    name: '精准扶贫管理',
+    meta: { title: '精准扶贫管理', icon: 'example' },
     children: [
       {
-        path: '/jingzhunfupin/doudi',
-        name: '兜底',
-        component: () => import('@/views/tree/index'),
-        meta: { title: '兜底', icon: 'table' }
+        path: '/jzhfp/doudi',
+        name: '兜底保障扶贫',
+        component: () => import('@/views/jzhfp/doudi'),
+        meta: { title: '兜底保障扶贫', icon: 'table' }
       },
       {
-        path: '/jingzhunfupin/profupin',
+        path: '/jzhfp/profupin',
         name: '产业扶贫',
-        component: () => import('@/views/tree/index'),
+        component: () => import('@/views/jzhfp/profupin'),
         meta: { title: '产业扶贫', icon: 'tree' }
       },
       {
-        path: '/jingzhunfupin/jiuye',
+        path: '/jzhfp/jiuye',
         name: '就业扶贫扶贫',
-        component: () => import('@/views/tree/index'),
+        component: () => import('@/views/jzhfp/jiuye'),
         meta: { title: '就业扶贫扶贫', icon: 'tree' }
       },
       {
-        path: '/jingzhunfupin/move',
+        path: '/jzhfp/movefupin',
         name: '搬迁扶贫',
-        component: () => import('@/views/tree/index'),
+        component: () => import('@/views/jzhfp/movefupin'),
         meta: { title: '搬迁扶贫', icon: 'tree' }
       },
       {
-        path: '/jingzhunfupin/edu',
+        path: '/jzhfp/edufupin',
         name: '教育扶贫',
-        component: () => import('@/views/tree/index'),
+        component: () => import('@/views/jzhfp/edufupin'),
         meta: { title: '教育扶贫', icon: 'tree' }
       },
       {
-        path: '/jingzhunfupin/medical',
+        path: '/jzhfp/medicalfupin',
         name: '医疗扶贫',
-        component: () => import('@/views/tree/index'),
+        component: () => import('@/views/jzhfp/medicalfupin'),
         meta: { title: '医疗扶贫', icon: 'tree' }
       }
     ]
