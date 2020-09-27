@@ -3,7 +3,7 @@ import qs from 'qs'
 export function login(username, password) {
   return request({
     url: '/jzfp/login',
-    // url: '/eduservice/user/login',   
+    // url: '/eduservice/user/login',
     method: 'post',
    //  data:{
    //  	username:username,

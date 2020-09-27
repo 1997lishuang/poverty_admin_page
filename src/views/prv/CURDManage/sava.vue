@@ -46,7 +46,7 @@
 	  <el-form-item label="身份证号">
 	    <el-input v-model="formInline.idCard" placeholder="审批人"></el-input>
 	  </el-form-item>
-	  
+
 	 <el-form-item label="文化程度">
 	    <el-select v-model="formInline.culture" placeholder="请选择文化程度">
 	      <el-option label="男" value="male"></el-option>
@@ -69,18 +69,18 @@
 	    <el-input v-model="formInline.phone" placeholder="审批人"></el-input>
 	  </el-form-item>
 	  <el-form-item label="家庭住址">
-	    <div class="block">		
+	    <div class="block">
 		  <el-cascader
 		    v-model="formInline.address"
 		    :options="options"
 		    :props="{ expandTrigger: 'hover' }"
 		    @change="handleChange"></el-cascader>
 		</div>
-	  </el-form-item>	  
+	  </el-form-item>
 	</el-form>
-	
+
 	<el-button type="success"  @click="saveOrUpdate">提交</el-button>
-	<router-link :to="'/prv/reliefinfo'">
+	<router-link :to="'/prv/povetyinfo'">
             <el-button type="primary">返回</el-button>
     </router-link>
   </div>
@@ -334,7 +334,23 @@
     getInfo(id) {
       prv.getPrvInfo(id)
         .then(response => {
-          this.formInline = response.data.formInline
+
+          this.formInline.id = response.msg.id
+          this.formInline.name = response.msg.name
+          this.formInline.sex = response.msg.sex
+          this.formInline.age = response.msg.age
+          this.formInline.nation = response.msg.nation
+          this.formInline.phone = response.msg.phone
+          this.formInline.idCard = response.msg.idCard
+          this.formInline.yearIncome = response.msg.yearIncome
+          this.formInline.predictTime = response.msg.predictTime
+          this.formInline.cause = response.msg.cause
+          this.formInline.demand = response.msg.demand
+          this.formInline.address = response.msg.address
+          this.formInline.grade = response.msg.grade
+          this.formInline.culture = response.msg.culture
+          this.formInline.born = response.msg.born
+          console.log(this.formInline)
         })
     },
     saveOrUpdate() {
@@ -375,7 +391,7 @@
               message: '添加成功!'
           });
           //回到列表页面 路由跳转
-          this.$router.push({path:'/prv/reliefinfo'})
+          this.$router.push({path:'/prv/povetyinfo'})
         }).catch(erro=>{
           console.log("erro")
         })

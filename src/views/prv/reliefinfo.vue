@@ -274,7 +274,7 @@ export default {
         }],
         list:null,//查询之后接口返回集合
         page:1,//当前页
-        limit:8,//每页记录数
+        limit:3,//每页记录数
         total:18,//总记录数
         tpaPerson:{} //条件封装对象
         }
@@ -295,15 +295,13 @@ export default {
             prv.getPrvListPage(this.page,this.limit)
             .then(response =>{//请求成功
                     //response接口返回的数据
-
-                    console.log(response.data.data)
-
-                    //this.tableData = response.data.data
-                    // this.total = response.data.total
-                    // console.log(this.list)
-                    // console.log(this.total)
+                    alert("1111")
+                    this.tableData = response.msg.data
+                    this.limit = response.msg.limit
+                    this.page = response.msg.page
+                    this.total  = response.msg.count
                 }).catch(err => {
-                     alert("1111")
+
                      console.log('Error Info:' + JSON.stringify(err))
                })
         },

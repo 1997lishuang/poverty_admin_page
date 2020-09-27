@@ -14,7 +14,7 @@ import store from './store'
 
 import '@/icons' // icon
 import '@/permission' // permission control
-
+// axios.defaults.withCredentials = true
 Vue.use(ElementUI, { locale })
 
 import iView from 'iview' // 导入组件库

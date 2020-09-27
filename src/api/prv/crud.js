@@ -5,7 +5,9 @@ export default {
     getPrvListPage(current,limit) {
         return request({
             url: `/jzfp/poverty/findPage?current=${current}&limit=${limit}`,
-            method: 'get'
+            method: 'get',
+            headers: { 'content-type': 'application/x-www-form-urlencoded' },
+            withCredentials: true
           })
     },
     //删除贫困人
@@ -13,22 +15,28 @@ export default {
         return request({
             // url: `/jzfp/poverty/deleteById/${id}`,
              url: `/jzfp/poverty/deleteById?id=${id}`,
+            headers: { 'content-type': 'application/x-www-form-urlencoded' },
+            withCredentials: true,
             method: 'delete'
           })
     },
-    //添加删除贫困人
+    //添加贫困人
     addPrv(formInline) {
         return request({
             url: `/jzfp/poverty/sava`,
             method: 'post',
+            headers: { 'content-type': 'application/x-www-form-urlencoded' },
+            withCredentials: true,
             data: formInline
           })
     },
     //根据id查询贫困人
     getPrvInfo(id) {
         return request({
-            url: `/poverty/findById/${id}`,
-            method: 'get'
+            url: `/jzfp/poverty/findById?id=${id}`,
+            method: 'get',
+            headers: { 'content-type': 'application/x-www-form-urlencoded' },
+            withCredentials: true
           })
     },
     //修改删除贫困人
@@ -39,6 +47,7 @@ export default {
             data: formInline
           })
     },
+
     //添加成员接口  这里没有修改接口名
     addPrvMember(formInline) {
         return request({
@@ -72,6 +81,6 @@ export default {
           })
     },
 
-    
+
     //脱贫人信息的查询
 }
