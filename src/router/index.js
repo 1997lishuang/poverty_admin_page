@@ -134,10 +134,52 @@ export const constantRouterMap = [
         meta: { title: '兜底保障扶贫', icon: 'table' }
       },
       {
+        path: '/jzhfp/doudiInfo/:id',
+        name: '兜底详情页面',
+        component: () => import('@/views/jzhfp/doudiInfo'),
+        meta: { title: '兜底详情页面', noCache: true },
+        hidden: true
+      },
+      {
+        path: '/jzhfp/doudiSave/:id',
+        name: '兜底修改页面',
+        component: () => import('@/views/jzhfp/doudiSava'),
+        meta: { title: '兜底修改页面', noCache: true },
+        hidden: true
+      },
+      {
+        path: '/jzhfp/doudiSave',
+        name: '兜底添加页面',
+        component: () => import('@/views/jzhfp/doudiSava'),
+        meta: { title: '兜底添加页面', noCache: true },
+        hidden: true
+      },
+      {
         path: '/jzhfp/profupin',
         name: '产业扶贫',
         component: () => import('@/views/jzhfp/profupin'),
         meta: { title: '产业扶贫', icon: 'tree' }
+      },
+      {
+        path: '/jzhfp/profupinSave/:id',
+        name: '兜底保障扶贫详情页面',
+        component: () => import('@/views/jzhfp/profupinSava'),
+        meta: { title: '兜底保障扶贫', icon: 'tree' },
+        hidden: true
+      },
+      {
+        path: '/jzhfp/profupinSave',
+        name: '兜底保障扶贫详情页面',
+        component: () => import('@/views/jzhfp/profupinSava'),
+        meta: { title: '兜底保障扶贫', icon: 'tree' },
+        hidden: true
+      },
+      {
+        path: '/jzhfp/profupinInfo',
+        name: '兜底保障扶贫详情页面',
+        component: () => import('@/views/jzhfp/profupinInfo'),
+        meta: { title: '兜底保障扶贫', icon: 'tree' },
+        hidden: true
       },
       {
         path: '/jzhfp/jiuye',

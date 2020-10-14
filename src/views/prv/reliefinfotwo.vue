@@ -179,7 +179,7 @@ export default {
                         this.$router.push({path: '/prv/infoTwo', query:{id: row.row.id}})
                       }
                     }
-                  }, 'View')
+                  }, '详情页面')
                   // h('Button', {
                   //   props: {
                   //     type: 'error',

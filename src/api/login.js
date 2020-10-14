@@ -2,22 +2,24 @@ import request from '@/utils/request'
 import qs from 'qs'
 export function login(username, password) {
   return request({
-    url: '/jzfp/login',
-    // url: '/eduservice/user/login',
+    // url: '/jzfp/login',
+    url: '/eduservice/user/login',
     method: 'post',
-   //  data:{
-   //  	username:username,
-   //  	password:password
-   // },
-    headers: { 'content-type': 'application/x-www-form-urlencoded' },
-    withCredentials: true,
-    data: qs.stringify({ username: username,password:password })
+    data:{
+    	username:username,
+    	password:password
+   },
+    //线上测试
+    // headers: { 'content-type': 'application/x-www-form-urlencoded' },
+    // withCredentials: true,
+    // data: qs.stringify({ username: username,password:password })
   })
 }
 
 export function getInfo(token) {
   return request({
-    url: '/jzfp/info',
+    // url: '/jzfp/info',
+    url:'/eduservice/user/info',
     method: 'get',
     params: { token }
   })

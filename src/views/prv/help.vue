@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    
+
       <div class="one">
    <el-table
         :data="tableData"
@@ -21,7 +21,7 @@
               {{ (page - 1) * limit + scope.$index + 1 }}
             </template>
         </el-table-column>
-        <el-table-column    
+        <el-table-column
           prop="sex"
           label="日期"
           width="100">
@@ -89,13 +89,13 @@
         </el-table-column>
       </el-table>
       </div>
-      
+
       <div class="two">
         <el-form :inline="true" class="demo-form-inline">
           <el-form-item>
             <el-input v-model="tpaHelpPerson.name" placeholder="扶贫人"/>
           </el-form-item>
-      
+
           <el-button type="primary" icon="el-icon-search" @click="getHelpList()">查询</el-button>
         </el-form>
         //table全部的扶贫人
@@ -118,17 +118,17 @@
                   {{ (page - 1) * limit + scope.$index + 1 }}
                 </template>
             </el-table-column>
-            <el-table-column    
+            <el-table-column
               prop="iphone"
               label="电话"
               width="100">
             </el-table-column>
-            <el-table-column    
+            <el-table-column
               prop="IdCard"
               label="身份证号"
               width="100">
             </el-table-column>
-            <el-table-column    
+            <el-table-column
               prop="workUnit"
               label="工作单位"
               width="100">
@@ -138,7 +138,7 @@
               fixed="right"
               label="操作"
               width="120">
-              <template slot-scope="scope">     
+              <template slot-scope="scope">
                 <el-button type="primary" size="mini"  @click="giveHelpPersonById(scope.row.id)">授予扶贫人</el-button>
               </template>
             </el-table-column>
@@ -156,8 +156,8 @@
 
   </div>
 </template>
-
   <script>
+    import prv from '@/api/prv/crud'
     export default {
       data() {
         return {
@@ -203,23 +203,22 @@
         },
         getHelpList(){
           //获取查询帮扶人的姓名
-          
+
 
         },
         getPrvHelpListPage(page=1) {
           // 出现问题是在请求成功后进入catch中
           // 解决的方案是不用from表单 用iview的table
-          //返回的数据格式{"success":true,"code":20000,"message":"成功","data":{"data":null}}
             this.page = page
             prv.getPrvHelpListPageist(this.page,this.limit)
             .then(response =>{//请求成功
                     //response接口返回的数据
-                        
+
                     console.log(response.data.data)
-                   
+
                     //this.tableData = response.data.data
                     // this.total = response.data.total
-                    // console.log(this.list)   
+                    // console.log(this.list)
                     // console.log(this.total)
                 }).catch(err => {
                      console.log('Error Info:' + JSON.stringify(err))
@@ -228,6 +227,17 @@
         giveHelpPersonById(id){
              //发送请求  添加 帮扶人
              // 在 查询所有的帮扶人在页面显示
+             // 后去扶贫人的id this.tableData.id
+             pev.helpPerson()
+               .then(response =>{//请求成功
+                 //response接口返回的数据
+
+                 console.log(response.data.data)
+
+               })
+          .catch(err=>{
+              console.log('Error Info:' + JSON.stringify(err))
+          })
              this.getHelpList()
         }
       }
@@ -238,3 +248,5 @@
   margin:40px;
 }
 </style>
+
+<!--在传递帮扶人的时间-->

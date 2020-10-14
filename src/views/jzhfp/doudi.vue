@@ -62,13 +62,17 @@
         label="家庭电话"
         width="120">
       </el-table-column>
-
+      <el-table-column
+        prop="address"
+        label="家庭住址"
+        width="120">
+      </el-table-column>
       <el-table-column
         fixed="right"
         label="操作"
         width="250">
         <template slot-scope="scope">
-          <router-link :to="'/prv/info/'+scope.row.id">
+          <router-link :to="'/jzhfp/doudiInfo/'+scope.row.id">
             <el-button type="primary" size="mini" icon="el-icon-edit">查看</el-button>
           </router-link>
           <el-button type="danger" size="mini" icon="el-icon-delete" @click="removeDataById(scope.row.id)">删除</el-button>
@@ -82,14 +86,15 @@
       :total="total"
       style="padding: 30px 0; text-align: center;"
       layout="total, prev, pager, next, jumper"
-      @current-change="getPrvListPageist"
+      @current-change="getDoudiListPageist"
     />
 
   </div>
 </template>
 <script>
   //引入调用prv.js文件
-  import prv from '@/api/prv/crud'
+  import jzhfp from '@/api/jzhfp/crud'
+  import prv from '@/api/jzhfp/crud'
 
   export default {
     //写核心代码位置
@@ -103,15 +108,16 @@
           name:'王五',
           sex:'男',
           age:'12',
-          nation:'汉'
+          nation:'汉',
+          address: '湖北'
         },
           {
             id:'2',
             name:'王五',
             sex:'男',
             age:'12',
-            nation:'汉'
-
+            nation:'汉',
+            address: '湖北'
 
           },
           {
@@ -119,7 +125,8 @@
             name:'王五',
             sex:'男',
             age:'12',
-            nation:'汉'
+            nation:'汉',
+            address: '湖北'
 
 
           },
@@ -128,8 +135,8 @@
             name:'王五',
             sex:'男',
             age:'12',
-            nation:'汉'
-
+            nation:'汉',
+            address: '湖北'
 
           }],
         list:null,//查询之后接口返回集合
@@ -141,18 +148,18 @@
     },
     created() { //页面渲染之前执行，一般调用methods定义的方法
       //调用
-      this.getPrvListPageist()
+      this.getDoudiListPageist()
     },
     methods:{  //创建具体的方法，调用teacher.js定义的方法
       //贫困人信息列表的方法
       handleClick(row) {
         console.log(row);
       },
-      getPrvListPageist(page=1) {
+      getDoudiListPageist(page=1) {
         // 出现问题是在请求成功后进入catch中
         // 解决的方案是不用from表单 用iview的table
         this.page = page
-        prv.getPrvListPage(this.page,this.limit)
+        jzhfp.doudiGetListPage(this.page,this.limit)
           .then(response =>{//请求成功
             //response接口返回的数据
 
@@ -160,22 +167,19 @@
 
             //this.tableData = response.data.data
             // this.total = response.data.total
-            // console.log(this.list)
-            // console.log(this.total)
           }).catch(err => {
-          alert("1111")
           console.log('Error Info:' + JSON.stringify(err))
         })
       },
       resetData() {//清空的方法
         //表单输入项数据清空
         this.tpaPerson = {}
-        //查询所有讲师数据
-        this.getList()
+        //查询所有兜底人数数据
+        this.getDoudiListPageist()
       },
       //删除的方法
       removeDataById(id) {
-        this.$confirm('此操作将永久删除讲师记录, 是否继续?', '提示', {
+        this.$confirm('此操作将永久删除贫困人信息, 是否继续?', '提示', {
           confirmButtonText: '确定',
           cancelButtonText: '取消',
           type: 'warning'
@@ -189,7 +193,7 @@
                 message: '删除成功!'
               })
               //回到列表页面
-              this.getList()
+              this.getDoudiListPageist()
             }).catch(err => {
             console.log("erro")
           })

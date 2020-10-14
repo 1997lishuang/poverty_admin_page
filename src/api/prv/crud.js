@@ -10,7 +10,7 @@ export default {
             withCredentials: true
           })
     },
-    //删除贫困人
+    //删除贫困人 (户主)
     deletePrvId(id) {
         return request({
             // url: `/jzfp/poverty/deleteById/${id}`,
@@ -39,7 +39,7 @@ export default {
             withCredentials: true
           })
     },
-    //修改删除贫困人
+    //修改贫困人
     updatePrvInfo(formInline) {
         return request({
             url: `/jzfp/poverty/sava`,
@@ -64,7 +64,7 @@ export default {
             data: formInline
           })
     },
-    //删除成员接口
+    //删除户主的成员接口
      deletePrvMemberId(id) {
         return request({
             // url: `/jzfp/poverty/deleteById/${id}`,
@@ -72,8 +72,7 @@ export default {
             method: 'delete'
           })
     },
-    // 获取成员info
-        //根据id查询贫困人
+    //根据id//获取户主成员的信息
     getPrvMemberInfo(id) {
         return request({
             url: `/poverty/findById/${id}`,
@@ -83,4 +82,12 @@ export default {
 
 
     //脱贫人信息的查询
+
+    // 添加帮扶贫人信息 需要的场合速为 helpid 和 被棒读喷 的id
+    helpPerson(helpId,prvId){
+      return request({
+          url:`/poverty/helpById/${helpId}/${prvId}`,
+          method: 'get'
+      })
+    }
 }
