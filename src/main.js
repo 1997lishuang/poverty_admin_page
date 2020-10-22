@@ -21,6 +21,10 @@ import iView from 'iview' // 导入组件库
 
 import 'iview/dist/styles/iview.css' // 导入样式
 
+import echarts from 'echarts'
+Vue.prototype.$echarts = echarts
+Vue.use(echarts)
+
 Vue.use(iView)
 
 Vue.config.productionTip = false

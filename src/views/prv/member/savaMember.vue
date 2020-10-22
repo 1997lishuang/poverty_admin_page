@@ -27,7 +27,7 @@
         <el-option label="女" value="female"></el-option>
       </el-select>
     </el-form-item>
-  
+
 	  <el-form-item label="身份证号">
 	    <el-input v-model="formInline.idCard" placeholder="审批人"></el-input>
 	  </el-form-item>
@@ -51,14 +51,14 @@
       </el-select>
     </el-form-item>
 	</el-form>
-	
+
 	<el-button type="success"  @click="saveOrUpdate">提交</el-button>
 	<router-link :to="'/prv/info/'+urlId">
             <el-button type="primary">返回</el-button>
     </router-link>
-    <router-link :to="{path:'/prv/info', query:{info_id:urlId}}">
-            <el-button type="primary">测试返回</el-button>
-    </router-link>
+<!--    <router-link :to="{path:'/prv/info', query:{info_id:urlId}}">-->
+<!--            <el-button type="primary">测试返回</el-button>-->
+<!--    </router-link>-->
   </div>
 </template>
 <script>

@@ -158,7 +158,10 @@
             });
             //回到列表页面 路由跳转
             this.$router.push({path:'/jzhfp/doudi'})
-          })
+          }).catch(erro=>{
+              alert("1111111")
+              this.$router.push({path:'/jzhfp/doudi'})
+        })
       },
       //添加的方法
       saveType() {
@@ -171,7 +174,9 @@
             });
             //回到列表页面 路由跳转 这里可以优化 路径
             this.$router.push({path:'/jzhfp/doudi'})
-          })
+          }).catch(erro=>{
+          // this.$router.push({path:'/jzhfp/doudi'})
+        })
       }
     },
   }

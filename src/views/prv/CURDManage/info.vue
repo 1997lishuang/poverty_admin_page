@@ -7,18 +7,18 @@
                 style="width:50%">
                 <el-table-column
                   fixed
-                  prop="date"
+                  prop="name"
                   label="户主"
                   width="150">
-                <el-table-column>
                 </el-table-column>
-                  prop="name"
-                  label="姓名"
-                  width="120">
-                </el-table-column>
+              <el-table-column
+                prop="province"
+                label="姓名"
+                width="120">
+              </el-table-column>
                 <el-table-column
                   prop="province"
-                  label="身份证号"
+                  label="地址"
                   width="120">
                 </el-table-column>
                 <el-table-column
@@ -147,11 +147,11 @@
                  <h1 v-model="moneytotal" style="color:red">总计金额：{{moneytotal}}</h1>
 
                 </el-tab-pane>
-                <el-tab-pane label="配置管理" name="second">配置管理</el-tab-pane>
+                <el-tab-pane label="教育" name="second">教育</el-tab-pane>
 
-                <el-tab-pane label="角色管理" name="third">角色管理</el-tab-pane>
+                <el-tab-pane label="就业" name="third">就业</el-tab-pane>
 
-                <el-tab-pane label="定时任务补偿" name="fourth">定时任务补偿</el-tab-pane>
+                <el-tab-pane label="医疗" name="fourth">医疗</el-tab-pane>
             </el-tabs>
         </div>
     </div>

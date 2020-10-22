@@ -35,7 +35,7 @@
         <el-option label="女" value="female"></el-option>
       </el-select>
     </el-form-item>
-  
+
 	  <el-form-item label="经办人">
 	    <el-input v-model="formInline.idCard" placeholder="审批人"></el-input>
 	  </el-form-item>
@@ -47,21 +47,23 @@
     <el-form-item label="审核人">
       <el-input v-model="formInline.phone" placeholder="审批人"></el-input>
     </el-form-item>
-   
+    <!--
+      通过路径判断是否存在id  v-if 有就不显示file 上传
+    <-->
     <el-form-item label="文件上传">
       <el-upload
         class="upload-demo"
         drag
         v-model="formInline.url"
         :on-change="callback"
-        action="https://jsonplaceholder.typicode.com/posts/"
+        action="http://machaoyin.top:8080/jzfp/poverty/posts/"
         multiple>
         <i class="el-icon-upload"></i>
         <div class="el-upload__text">将文件拖到此处,或<em>点击上传</em></div>
         <div class="el-upload__tip" slot="tip">只能上传jpg/png文件，且不超过500kb</div>
       </el-upload>
     </el-form-item>
- 
+
 	</el-form>
 	/
 	<el-button type="success"  @click="saveOrUpdate">提交</el-button>
@@ -70,7 +72,7 @@
   </router-link>
   </div>
 </template>
- 
+
 <script>
   import pro from '@/api/pro/crud'
   export default {

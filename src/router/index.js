@@ -208,27 +208,46 @@ export const constantRouterMap = [
     ]
   },
 
-  // {
-  //   path: '/fupinshudata',
-  //   component: Layout,
-  //   redirect: '/fupinshudata/table',
-  //   name: 'Example',
-  //   meta: { title: 'Example', icon: 'example' },
-  //   children: [
-  //     {
-  //       path: '/fupinshudata/',
-  //       name: 'Table',
-  //       component: () => import('@/views/table/index'),
-  //       meta: { title: 'Table', icon: 'table' }
-  //     },
-  //     {
-  //       path: 'tree',
-  //       name: 'Tree',
-  //       component: () => import('@/views/tree/index'),
-  //       meta: { title: 'Tree', icon: 'tree' }
-  //     }
-  //   ]
-  // },
+  {
+    path: '/dataManagement',
+    component: Layout,
+    redirect: '/dataManagement/table',
+    name: '扶贫数据管理',
+    meta: { title: '扶贫数据管理', icon: 'example' },
+    children: [
+      {
+        path: '/dataManagement/cps',
+        name: '单项产业扶贫对比',
+        component: () => import('@/views/jzhfpDataManagement/cps'),
+        meta: { title: '单项产业扶贫对比', icon: 'table' }
+      },
+      {
+        path: '/dataManagement/cms',
+        name: '村级扶贫金额统计',
+        component: () => import('@/views/jzhfpDataManagement/cms'),
+        meta: { title: '村级扶贫金额统计', icon: 'tree' }
+      },
+      {
+        path: '/dataManagement/cns',
+        name: '村级户口数量统计',
+        component: () => import('@/views/jzhfpDataManagement/cns'),
+        meta: { title: '村级户口数量统计', icon: 'tree' }
+      },
+      {
+        path: '/dataManagement/cpn',
+        name: '村脱贫人数统计',
+        component: () => import('@/views/jzhfpDataManagement/cpn'),
+        meta: { title: '村脱贫人数统计', icon: 'tree' }
+      },
+      {
+        path: '/dataManagement/cph',
+        name: '村脱贫户统计',
+        component: () => import('@/views/jzhfpDataManagement/cph'),
+        meta: { title: '村脱贫户统计', icon: 'tree' }
+      }
+
+    ]
+  },
 
   // {
   //   path: '/form',

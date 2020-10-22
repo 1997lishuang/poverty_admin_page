@@ -10,7 +10,16 @@ export default {
             withCredentials: true
           })
     },
-    //删除贫困人 (户主)
+    //模糊查询贫困人信息集合
+    getLikeList() {
+      return request({
+        url: `/jzfp/poverty/findLikePage`,
+        method: 'get',
+        headers: { 'content-type': 'application/x-www-form-urlencoded' },
+        withCredentials: true
+      })
+    },
+  //删除贫困人 (户主)
     deletePrvId(id) {
         return request({
             // url: `/jzfp/poverty/deleteById/${id}`,
