@@ -5,9 +5,32 @@
   </div> -->
 
   <div class="container">
-    <h1>111</h1>
+
+    <div class="two">
+      <van-field name="uploader" label="文件上传">
+        <template #input>
+          <van-uploader v-model="uploader" />
+        </template>
+      </van-field>
+    </div>
+
     <div class="one">
+
+      <van-icon name="chat-o" dot size="40"/>
+      <van-icon name="chat-o" badge="9" size="40" />
+      <van-icon name="chat-o" badge="99+" size="40" />
       <div ref="myChart" style="height:300px;width:100%"></div>
+    </div>
+    <div class="two">
+      <!--导出用户信息excel表格-->
+      <download-excel
+        class = "export-excel-wrapper"
+        :data = "json_data"
+        :fields = "json_fields"
+        type="xls"
+        >
+        <el-button type="primary" size="small" @click="getData">导出EXCEL</el-button>
+      </download-excel>
     </div>
   </div>
 </template>
@@ -24,13 +47,50 @@ export default {
     ])
   },
   data() {
-    return {};
+    return {
+      uploader: [{ url: 'https://img.yzcdn.cn/vant/leaf.jpg' }],
+      badge:88,
+      name:"扶贫基本信息",
+      //导出excel
+      json_fields: {
+        "姓名": "name",    //常规字段
+        "用户名":"username",
+        "所属组织":"organization",
+        "权限":"auth",
+      },
+      json_data: [
+        //写死，后续可通过接口进行传值
+        {
+          name:'汤姆',
+          username:'admin1',
+          organization:'地球村',
+          auth:'超级管理员'
+        },
+        {
+          name:'杰米',
+          username:'admin2',
+          organization:'地球村',
+          auth:'超级管理员'
+        }
+      ],
+      json_meta: [
+        [
+          {
+            "key": "charset",
+            "value": "utf- 8"
+          }
+        ]
+      ]
+    };
   },
   //表格渲染
   created() {
     // this.drawLine();
   },
   methods: {
+    getData(){
+         alert("111")
+    },
     drawLine() {
       // 基于准备好的dom，初始化echarts实例
       let myChart = this.$echarts.init(this.$refs.myChart);
@@ -69,5 +129,6 @@ export default {
     font-size: 30px;
     line-height: 46px;
   }
+
 }
 </style>

@@ -23,6 +23,14 @@ import 'iview/dist/styles/iview.css' // 导入样式
 
 import echarts from 'echarts'
 Vue.prototype.$echarts = echarts
+
+import JsonExcel from 'vue-json-excel'
+
+Vue.component('downloadExcel', JsonExcel)
+import 'vant/lib/index.css'
+import Vant from 'vant'
+Vue.use(Vant)
+
 Vue.use(echarts)
 
 Vue.use(iView)

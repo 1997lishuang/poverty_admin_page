@@ -70,90 +70,90 @@
             </el-table>
         </div>
 
-        <div class="three">
-            <el-tabs v-model="activeName" @tab-click="handleClickTabs">
-                <el-tab-pane label="产业扶贫" name="first">
-                <el-table
-                :data="tableData"
-                border
-                style="width:100%">
-                <el-table-column
-                  prop="date"
-                  label="产业名称"
-                  width="100">
-                </el-table-column>
-                <el-table-column
-                  prop="name"
-                  label="产业规模"
-                  width="100">
-                </el-table-column>
-                <el-table-column
-                  prop="province"
-                  label="总补助金"
-                  width="100">
-                </el-table-column>
-                <el-table-column
-                  prop="date"
-                  label="已发金额"
-                  width="100">
-                </el-table-column>
-                <el-table-column
+      <div class="three">
+        <el-tabs v-model="activeName" @tab-click="handleClickTabs">
+          <el-tab-pane label="产业扶贫" name="first">
+            <el-table
+              :data="tableData"
+              border
+              style="width:100%">
+              <el-table-column
+                prop="date"
+                label="产业名称"
+                width="100">
+              </el-table-column>
+              <el-table-column
+                prop="name"
+                label="产业规模"
+                width="100">
+              </el-table-column>
+              <el-table-column
+                prop="province"
+                label="总补助金"
+                width="100">
+              </el-table-column>
+              <el-table-column
+                prop="date"
+                label="已发金额"
+                width="100">
+              </el-table-column>
+              <el-table-column
 
-                  prop="date"
-                  label="剩余金额"
-                  width="100">
-                </el-table-column>
-                <el-table-column
+                prop="date"
+                label="剩余金额"
+                width="100">
+              </el-table-column>
+              <el-table-column
 
-                  prop="date"
-                  label="发放时间"
-                  width="100">
-                </el-table-column>
-                <el-table-column
-                  prop="name"
-                  label="经办人"
-                  width="100">
-                </el-table-column>
-                <el-table-column
-                  prop="name"
-                  label="审核人"
-                  width="100">
-                </el-table-column>
-                <el-table-column
-                  prop="date"
-                  label="扶贫时间"
-                  width="100">
-                </el-table-column>
-                <el-table-column prop="url" label="产业的图片">
-				　　<template slot-scope="scope">
-				　　　　<img :src="scope.row.url" width="40" height="40" class="head_pic"/>
-				　　</template>
-				</el-table-column>
-                <el-table-column
-                  fixed="right"
-                  label="操作"
-                  width="300">
-                  <template slot-scope="scope">
-                    <router-link :to="'/pro/sava/'+scope.row.id">
-                        <el-button type="primary" size="mini" icon="el-icon-edit">修改</el-button>
-                    </router-link>
-                    <router-link :to="'/pro/sava/'">
-                        <el-button type="primary" size="mini" icon="el-icon-edit">添加</el-button>
-                    </router-link>
-                   <el-button type="danger" size="mini" icon="el-icon-delete" @click="removeDataById(scope.row.id)">删除</el-button>
-                  </template>
-                 </el-table-column>
-                 </el-table>
-                 <h1 v-model="moneytotal" style="color:red">总计金额：{{moneytotal}}</h1>
+                prop="date"
+                label="发放时间"
+                width="100">
+              </el-table-column>
+              <el-table-column
+                prop="name"
+                label="经办人"
+                width="100">
+              </el-table-column>
+              <el-table-column
+                prop="name"
+                label="审核人"
+                width="100">
+              </el-table-column>
+              <el-table-column
+                prop="date"
+                label="扶贫时间"
+                width="100">
+              </el-table-column>
+              <el-table-column prop="url" label="产业的图片">
+                　　<template slot-scope="scope">
+                　　　　<img :src="scope.row.url" width="40" height="40" class="head_pic"/>
+                　　</template>
+              </el-table-column>
+              <el-table-column
+                fixed="right"
+                label="操作"
+                width="300">
+                <template slot-scope="scope">
+                  <router-link :to="'/pro/sava/'+scope.row.id">
+                    <el-button type="primary" size="mini" icon="el-icon-edit">修改</el-button>
+                  </router-link>
+                  <router-link :to="'/pro/sava/'">
+                    <el-button type="primary" size="mini" icon="el-icon-edit">添加</el-button>
+                  </router-link>
+                  <el-button type="danger" size="mini" icon="el-icon-delete" @click="removeDataById(scope.row.id)">删除</el-button>
+                </template>
+              </el-table-column>
+            </el-table>
+            <h1 v-model="moneytotal" style="color:red">总计金额：{{moneytotal}}</h1>
 
-                </el-tab-pane>
-                <el-tab-pane label="教育" name="second">教育</el-tab-pane>
+          </el-tab-pane>
+          <el-tab-pane label="教育" name="second">教育</el-tab-pane>
 
-                <el-tab-pane label="就业" name="third">就业</el-tab-pane>
+          <el-tab-pane label="就业" name="third">就业</el-tab-pane>
 
-                <el-tab-pane label="医疗" name="fourth">医疗</el-tab-pane>
-            </el-tabs>
-        </div>
+          <el-tab-pane label="医疗" name="fourth">医疗</el-tab-pane>
+        </el-tabs>
+      </div>
     </div>
 
 

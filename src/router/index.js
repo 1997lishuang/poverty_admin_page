@@ -248,19 +248,28 @@ export const constantRouterMap = [
 
     ]
   },
+  {
+    path: '/helpInfo',
+    component: Layout,
+    redirect: '/helpInfo/showRecord',
+    name: '帮扶信息管理',
+    meta: { title: '帮扶信息管理', icon: 'example' },
+    children: [
+      {
+        path: '/helpInfo/showRecord',
+        name: '查看帮扶日志',
+        component: () => import('@/views/helpInfo/showRecord'),
+        meta: { title: '查看帮扶日志', icon: 'table' }
+      },
+      {
+        path: '/helpInfo/showHelpInfo',
+        name: '查看帮扶信息',
+        component: () => import('@/views/helpInfo/showHelpInfo'),
+        meta: { title: '查看帮扶信息', icon: 'table' }
+      }
+    ]
+  },
 
-  // {
-  //   path: '/form',
-  //   component: Layout,
-  //   children: [
-  //     {
-  //       path: 'index',
-  //       name: 'Form',
-  //       component: () => import('@/views/form/index'),
-  //       meta: { title: 'Form', icon: 'form' }
-  //     }
-  //   ]
-  // },
 
   // {
   //   path: '/nested',
